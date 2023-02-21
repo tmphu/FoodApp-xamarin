@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.SignUpPage"
+             >
+    <NavigationPage.TitleView>
+        <Label Text="Đăng ký"
+                   HorizontalOptions="Center"
+                   Margin="0,0,60,0"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontSize="20"
+               />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Margin="10,20,10,0"
+                         Grid.Column="0" Grid.Row="0">
+                <Entry x:Name="txtUserName" Placeholder="Nhập tên người dùng" />
+                <Entry x:Name="txtLoginName" Placeholder="Nhập tên đăng nhập" />
+                <Entry x:Name="txtEmail" Placeholder="Nhập email" Keyboard="Email"/>
+                <Entry x:Name="txtPhone" Placeholder="Nhập số điện thoại" Keyboard="Telephone"/>
+                <Entry x:Name="txtPassword" Placeholder="Nhập mật khẩu" IsPassword="True"/>
+                <Entry x:Name="txtPasswordConfirm" Placeholder="Nhập lại mật khẩu" IsPassword="True" />
+            </StackLayout>
+            <Button x:Name="cmdSignUp" Text="Đăng ký" Clicked="cmdSignUp_Clicked"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Grid.Column="0" Grid.Row="1"
+                    />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

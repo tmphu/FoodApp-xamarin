@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.OrderDetailPage">
+    
+    <NavigationPage.TitleView>
+        <Label Text="Chi tiết đơn"
+                   HorizontalOptions="Center"
+                   Margin="0,0,50,0"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontSize="20"
+               />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <Grid x:Name="Order">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Column="0" Grid.Row="0"
+                         VerticalOptions="Center">
+                <Label Text="{Binding OrderStatus}"
+                           FontSize="20"
+                           TextColor="Green"
+                           Margin="0,0,0,0"
+                           HorizontalOptions="Center"
+                           />
+                <Label Text="{Binding SellerNameAddress}"
+                       HorizontalOptions="Center"
+                       FontSize="Title"
+                       FontAttributes="Bold"
+                       />
+                <Label Text="{Binding OrderDate}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,0"
+                       FontSize="16"
+                       />
+            </StackLayout>
+            <ListView x:Name="orderDetail"
+                      RowHeight="50"
+                      VerticalOptions="Start"
+                      Margin="10,0,10,0"
+                      Grid.Column="0" Grid.Row="1"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Qty}"
+                                       FontSize="16"
+                                       Grid.Column="0" Grid.Row="0"
+                                       />
+                                <Label Text="{Binding ProductName}"
+                                       FontSize="16"
+                                       Grid.Column="1" Grid.Row="0"
+                                       />
+                                <Label Text="{Binding TotalItemAmountVND}"
+                                       FontSize="16"
+                                       Grid.Column="2" Grid.Row="0"
+                                       />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="Start">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tổng cộng: " 
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       FontSize="16"
+                       Margin="10,0,0,0"
+                       />
+                    <Label Text="{Binding TotalAmountVND}"
+                       HorizontalOptions="End"
+                       FontSize="16"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Phương thức thanh toán: " 
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       Margin="10,0,0,0"
+                       />
+                    <Label Text="{Binding PaymentMethod}"
+                       FontSize="16"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Column="0" Grid.Row="3"
+                         VerticalOptions="Start"
+                         Margin="10,0,10,0">
+                <Label Text="Thông tin người mua"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="Mã đơn hàng" 
+                           Grid.Column="0" Grid.Row="0"/>
+                    <Label Text="{Binding OrderID}"
+                           Grid.Column="1" Grid.Row="0"/>
+                    <Label Text="Tên khách hàng" 
+                           Grid.Column="0" Grid.Row="1"/>
+                    <Label Text="{Binding TenNguoiDung}"
+                           x:Name="user"
+                           Grid.Column="1" Grid.Row="1"/>
+                    <Label Text="Số điện thoại" 
+                           Grid.Column="0" Grid.Row="2"/>
+                    <Label Text="{Binding SoDienThoai}"
+                           x:Name="user2"
+                           Grid.Column="1" Grid.Row="2"/>
+                    <Label Text="Địa chỉ"
+                           Grid.Column="0" Grid.Row="3"/>
+                    <Label Text="{Binding DiaChi}"
+                           x:Name="user3"
+                           Grid.Column="1" Grid.Row="3"/>
+                </Grid>
+            </StackLayout>
+            <Button Text="Mua lại"
+                    BackgroundColor="Orange"
+                    Grid.Column="0" Grid.Row="4"
+                    FontSize="18"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="Button_Clicked"
+                    />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

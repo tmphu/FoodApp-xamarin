@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.OrderSuccessPage"
+             Title="Đặt hàng thành công">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="header">
+                <Label Text="Cám ơn bạn đã đặt, nhà hàng đang chuẩn bị món ăn"
+                       HorizontalTextAlignment="Center"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       Margin="10,20,10,0"
+                       HorizontalOptions="Center"
+                       />
+                <Label Text="Thông tin đơn hàng"
+                       FontSize="22"
+                       Margin="10,20,0,0"
+                       />
+                <StackLayout Orientation="Horizontal"
+                             Margin="30,0,0,0"
+                             >
+                    <Label Text="Mã đơn hàng: " 
+                           FontSize="16"
+                           />
+                    <Label Text="{Binding OrderID}" 
+                           FontSize="16"
+                           />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="30,0,0,0"
+                             >
+                    <Label Text="Trạng thái đơn hàng: " 
+                           FontSize="16"
+                           />
+                    <Label Text="{Binding OrderStatus}" 
+                           FontSize="16"
+                           TextColor="Green"
+                           />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" 
+                            Margin="30,0,0,0"
+                             >
+                    <Label Text="Thời gian dự kiến: " 
+                           FontSize="16"
+                           />
+                    <Label Text="15 phút" 
+                           FontSize="16"
+                           TextColor="Green"
+                           />
+                </StackLayout>
+            </StackLayout>
+            <Button x:Name="toHomePage"
+                    Margin="0,100,0,0"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"
+                    CornerRadius="10"
+                    Text="Về trang chủ"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="Orange"
+                    Clicked="toHomePage_Clicked"
+                    />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

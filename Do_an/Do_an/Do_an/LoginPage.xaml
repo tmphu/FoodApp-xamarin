@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.LoginPage"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout Padding="40"
+                     VerticalOptions="Center"
+                     HorizontalOptions="FillAndExpand">
+            
+            <Image Source="logo_1.png" WidthRequest="180" HeightRequest="180" Margin="30"></Image>
+            
+            <Entry x:Name="txtLoginName" 
+                   Placeholder="Nhập tên đăng nhập"
+                   PlaceholderColor="Gray"
+                   />
+            <Entry x:Name="txtPassword" 
+                   Placeholder="Nhập mật khẩu" 
+                   IsPassword="True"
+                   PlaceholderColor="Gray"
+                   />
+            <Button x:Name="cmdLogin" 
+                    Text="Đăng Nhập" 
+                    FontSize="18"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    BackgroundColor="Orange"
+                    BorderWidth="1.5"
+                    CornerRadius="50"
+                    BorderColor="Orange"
+                    Margin="20"
+                    Clicked="cmdLogin_Clicked" />
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Bạn chưa có tài khoản? " TextColor="Gray" FontSize="16"/>
+                        <Span Text="Đăng ký" TextColor="Gray"  FontAttributes="Bold" TextDecorations="Underline"
+                              FontSize="16"/>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

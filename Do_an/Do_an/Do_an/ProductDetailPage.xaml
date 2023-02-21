@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.ProductDetailPage"
+             >
+    <NavigationPage.TitleView>
+        <Label Text="{Binding NameAddress}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,60,0"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontSize="20"
+               x:Name="title"
+               />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                        >
+                <StackLayout>
+                    <StackLayout x:Name="productHeader"
+                             >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="200"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding ProductImage}"
+                           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                           Aspect="AspectFill"/>
+                            <Label Text="{Binding ProductName}"
+                           Grid.Column="0" Grid.Row="1"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           Margin="20,20,0,0"
+                           />
+                            <Label Text="{Binding ProductPriceVND}"
+                           Grid.Column="1" Grid.Row="1"
+                           FontSize="Title"
+                           Margin="0,20,20,0"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="End"
+                           />
+                            <Label Text="Đã bao gồm chi phí đóng gói và hộp"
+                           Grid.Column="0" Grid.Row="2"
+                           FontSize="16"
+                           Margin="20,0,0,0"
+                           />
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout x:Name="stepperContainer"
+                         Grid.Column="0" Grid.Row="1"
+                         >
+                <Label BindingContext="{x:Reference stepper}"
+                       Text= "{Binding Value}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       />
+                <Stepper x:Name="stepper" Minimum="1" Maximum="10" Increment="1" 
+                       HorizontalOptions="Center"
+                       />
+            </StackLayout>
+            <Button Text="Đặt món"
+                    Grid.Column="1" Grid.Row="1"
+                    BackgroundColor="Orange"
+                    HorizontalOptions="FillAndExpand"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Margin="0,0,0,10"
+                    CornerRadius="10"
+                    Clicked="Button_Clicked"
+                    />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

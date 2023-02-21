@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.UserProfilePage">
+    <NavigationPage.TitleView>
+        <Label Text="Tài khoản"
+                   HorizontalOptions="Center"
+                   Margin="0,0,60,0"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontSize="20"
+               />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <Grid Margin="10,10,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ScrollView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackLayout>
+                    <Image Source="user.png"
+                        HeightRequest="60" />
+                    <Label Text="Tên người dùng"
+                       FontAttributes="Bold"
+                       FontSize="14" />
+                    <Entry x:Name="txtUserName"
+                       Placeholder="Nhập tên người dùng" 
+                       FontSize="14" />
+                    <Label Text="Tên đăng nhập" 
+                       FontAttributes="Bold"
+                       FontSize="14" />
+                    <Entry x:Name="txtLoginName"
+                       IsReadOnly="True"
+                       FontSize="14" />
+                    <Label Text="Mật khẩu"
+                       FontAttributes="Bold"
+                       FontSize="14" />
+                    <Entry x:Name="txtPassword"
+                       Placeholder="Nhập mật khẩu" IsPassword="True"
+                       FontSize="14" />
+                    <Label Text="Nhập lại mật khẩu"
+                       FontAttributes="Bold"
+                       FontSize="14" />
+                    <Entry x:Name="txtPasswordConfirm"
+                       Placeholder="Nhập lại mật khẩu" IsPassword="True"
+                       FontSize="14" />
+                    <Label Text="Email"
+                       FontAttributes="Bold"
+                       FontSize="14" />
+                    <Entry x:Name="txtEmail"
+                       Placeholder="Nhập email" Keyboard="Email"
+                       FontSize="14" />
+                    <Label Text="Số điện thoại"
+                       FontAttributes="Bold"
+                       FontSize="14" />
+                    <Entry x:Name="txtPhone" Placeholder="Nhập số điện thoại"
+                       Keyboard="Telephone" FontSize="14" />
+                    <Label Text="Địa chỉ"
+                       FontAttributes="Bold"
+                       FontSize="14" />
+                    <Entry x:Name="txtAddress" Placeholder="Nhập địa chỉ"
+                       FontSize="14" />
+                </StackLayout>
+                    
+                
+            </ScrollView>
+                <Button Text="Đăng xuất" 
+                    TextColor="Red"
+                    BackgroundColor="Gray"
+                    Grid.Column="0" Grid.Row="1"
+                    Clicked="Button_Clicked"
+                    />
+                <Button Text="Lưu thay đổi" 
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    Grid.Column="1" Grid.Row="1"
+                    Clicked="Button_Clicked_1"
+                    />
+            </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.CategoryPage">
+    <NavigationPage.TitleView>
+        <Label Text="Danh mục"
+                   HorizontalOptions="Center"
+                   Margin="0,0,60,0"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontSize="20"
+               />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <ListView x:Name="sellerList"
+                          RowHeight="120"
+                          ItemSelected="sellerList_ItemSelected"
+                          >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding SellerImage}"
+                                           Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                                           VerticalOptions="Center"
+                                           />
+                            <Label Text="{Binding NameAddress}"
+                                           Grid.Column="1" Grid.Row="0" 
+                                           VerticalOptions="Start"
+                                           Padding="10,0,0,0"
+                                           FontSize="16"
+                                           />
+                            <StackLayout Orientation="Horizontal"
+                                                 Grid.Column="1" Grid.Row="1"
+                                                 VerticalOptions="End"
+                                                 Padding="10,0,0,10"
+                                                 >
+                                <Image Source="rating_star.png"
+                                               HeightRequest="15"
+                                               HorizontalOptions="Start"
+                                               />
+                                <Label Text="{Binding SellerRating}"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Start"
+                                               FontSize="16"
+                                               />
+                                <Label Text="(999+)"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Start"
+                                               FontSize="16"
+                                               />
+                                <Label Text="0.9km"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="EndAndExpand"
+                                               FontSize="16"
+                                               />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

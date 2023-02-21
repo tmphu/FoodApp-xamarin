@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Do_an.SellerPage">
+    <NavigationPage.TitleView>
+        <Label Text="Food Delivery"
+                   HorizontalOptions="Center"
+                   Margin="0,0,60,0"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontSize="20"
+               />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout>
+                <StackLayout x:Name="sellerHeader"
+                             >
+                    <Image Source="{Binding SellerHeroBanner}"
+                           HeightRequest="150"
+                           Aspect="AspectFill"/>
+                    <Label Text="Đối tác của Food Delivery" 
+                           HorizontalOptions="Center"
+                           FontSize="16"
+                           TextColor="DodgerBlue"
+                           />
+                    <Label Text="{Binding NameAddress}"
+                           HorizontalOptions="Center"
+                           FontSize="Title"/>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center"
+                                >
+                        <Image Source="rating_star.png"
+                                HeightRequest="15"
+                                HorizontalOptions="Start"
+                                />
+                        <Label Text="{Binding SellerRating}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                FontSize="16"
+                                />
+                        <Label Text="(999+)"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                FontSize="16"
+                                />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="productSection">
+                    <ListView x:Name="sellerProduct"
+                              RowHeight="100"
+                              VerticalOptions="FillAndExpand"
+                              ItemSelected="sellerProduct_ItemSelected"
+                              >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="15"
+                                          Margin="10,0,10,0"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding ProductName}" 
+                                               Grid.Column="0" Grid.Row="0"
+                                               FontSize="16"
+                                               />
+                                        <Label Text="{Binding ProductPriceVND}"
+                                               Grid.Column="0" Grid.Row="1"
+                                               FontSize="16"
+                                               VerticalOptions="End"
+                                               />
+                                        <Image Source="{Binding ProductImage}"
+                                               Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                               HorizontalOptions="End"
+                                               />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
